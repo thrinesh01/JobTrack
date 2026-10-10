@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import JobTable from "./JobTable";
 
-const API_URL = "http://localhost:8080/api/jobs";
+const API_URL = "https://jobtrack-backend-t7zg.onrender.com/api/jobs";
 
 function App() {
   const [jobs, setJobs] = useState([]);
