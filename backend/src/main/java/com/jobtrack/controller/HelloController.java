@@ -16,7 +16,10 @@ import com.jobtrack.service.JobService;
 
 import jakarta.validation.Valid;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://jobtrack-frontend-nvj5.onrender.com"
+})
 @RestController
 public class HelloController {
 	private final JobService jobService;
