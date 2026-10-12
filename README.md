@@ -39,14 +39,44 @@ JobTrack is a full-stack web application that helps job seekers manage and track
 - Render (frontend and backend hosting)
 - Git and GitHub
 
-## Architecture
+## System Architecture
 
-The application follows a frontend-backend architecture.
+JobTrack uses a frontend-backend architecture.
 
-1. The React frontend provides the user interface.
-2. The frontend communicates with the Spring Boot backend through REST APIs.
-3. The backend processes requests and manages job application records.
-4. TiDB Cloud stores the application data.
+- **Frontend:** React and Vite provide the user interface and are hosted on Render.
+- **Backend:** Spring Boot and Java 21 expose REST APIs for managing job applications.
+- **Containerization:** Docker uses a multi-stage build to package the backend application.
+- **Database:** TiDB Cloud stores job application records using a MySQL-compatible database.
+- **Configuration:** Environment variables manage database connection settings.
+
+The frontend communicates with the backend through REST APIs, while the backend interacts with the database to store and retrieve application data.
+
+### Architecture Flow
+
+```text
+User
+  |
+  v
+React + Vite Frontend (Render)
+  |
+  | HTTP / REST API
+  v
+Spring Boot Backend (Docker on Render)
+  |
+  | JDBC / MySQL-compatible connection
+  v
+TiDB Cloud Database
+```
+
+## Screenshots
+
+### Dashboard
+
+![JobTrack Dashboard](screenshots/dashboard.png)
+
+### My Applications
+
+![JobTrack My Applications](screenshots/applications.png)
 
 ## API Endpoints
 
@@ -115,7 +145,7 @@ Ensure the frontend API configuration points to your local backend when running 
 
 - Database credentials are supplied through environment variables.
 - Do not commit passwords, API keys, or other secrets.
-- Use environment variables for deployment-specific configuration.## Docker and Deployment
+- Use environment variables for deployment-specific configuration.
 
 ## Docker and Deployment
 
